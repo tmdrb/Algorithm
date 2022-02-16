@@ -1,6 +1,26 @@
 # Algorithm
 알고리즘 정리
 
+## 백트래킹 알고리즘
+
+완전 탐색과 비슷하지만 중간에 정답이 되지 않는 경로가 있으면 탐색하지 않고 돌아간다.
+
+```
+def a(v,n,arr):
+
+    print(v," ",arr)
+    """ 
+    겹치지 않는 모든 경우를 출력하기 위해서 재귀함수 호출전에 방문했다 표시하고 재귀함수 후에 방문 표시를 지워준다.
+    """
+    for i in range(1,n+1):
+        
+        if i not in arr:
+            arr.append(i)
+            a(i,n,arr)
+            arr.pop()
+        
+```
+
 ## 완전탐색 알고리즘
 
 모든 경우의 수를 다 체크해서 정답을 찾는 방법
@@ -35,7 +55,7 @@ def DFS(graph ,v , visited):
     print(v)
     for i in graph[v]:
         if not visited[i]:
-            visited[i] = True
+            
             DFS(graph,i,visited)
 ```
 
