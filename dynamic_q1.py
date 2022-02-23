@@ -20,21 +20,25 @@ def solution(money):
     
     n = len(money)
     dp = [0] * n
+    dp1 = [0] * n
     
     for i in range(0,n-1):
-        if i == 0 and i == 1:
+        if i == 0:
             dp[i] = money[i]
+        elif i == 1:
+            dp[i] = max(money[i],dp[i-1])
       
         else:
             dp[i] = max(money[i]+dp[i-2],dp[i-1])
             
-    
+   
     for i in range(1,n):
-        if i == 1 and i == 2:
-            dp[i] = money[i]
+        if i == 1:
+            dp1[i] = max(money[i],dp1[i-1])
       
         else:
-            dp[i] = max(money[i]+dp[i-2],dp[i-1])
-            
-    answer = dp[-1]
+            dp1[i] = max(money[i]+dp1[i-2],dp1[i-1])
+    
+    
+    answer = max(dp[-2],dp1[-1])
     return answer
