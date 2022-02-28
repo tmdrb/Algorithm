@@ -88,3 +88,41 @@ def BFS(graph,v,visited):
         
 ```
 
+### 다익스트라 알고리즘 
+
+최단경로 찾는 문제
+
+1차원 테이블에 노드별로 최소값을 갱신해 나가면서 해결
+
+일반적인 다익스트라
+```
+
+def dk(start_node,graph,visited,table):
+    
+    table[start_node] = 0
+    visited[start_node] = True
+    
+    q = [1,2,3,4,5,6]
+    
+    
+    while q:
+        m = 1000
+        
+        q.remove(start_node)
+        for node,weight in graph[start_node]:
+            table[node] = table[start_node]+weight if table[node] == -1 else min(table[node],table[start_node]+weight)
+            
+        
+        for index in q:
+            
+            if table[index] != -1:
+                
+                if m > table[index]:
+                    
+                    m = index
+                    
+        
+        start_node = m
+```
+
+개선된 다익스트라 알고리즘은 우선순위 큐를 사용한다.
