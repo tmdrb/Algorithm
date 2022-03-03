@@ -126,3 +126,20 @@ def dk(start_node,graph,visited,table):
 ```
 
 개선된 다익스트라 알고리즘은 우선순위 큐를 사용한다.
+
+문자열 탐색 알고리즘
+
+brute-force 방식
+
+단순히 data와 query를 비교하면 O(M x n) 이다.
+
+KMP
+
+위의 과정에서 개선된 방법으로 query에서의 반복적인 인덱스를 기록하는 테이블을 하나 생성
+```
+ex) 'aaabb' -> [0,1,2,0,4] 
+배열의 숫자의미는 값 전까지 반복하고 있다는 의미
+```
+Rolling hash
+
+
